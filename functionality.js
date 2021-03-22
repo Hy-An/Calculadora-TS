@@ -13,7 +13,7 @@ var Calculator = /** @class */ (function () {
         this.currentOperand = this.currentOperand.toString().slice(0, -1);
     };
     Calculator.prototype.appendNumber = function (number) {
-        if (number === "." && this.currentOperand.includes("."))
+        if (number === "." && this.currentOperand.toString().includes("."))
             return;
         this.currentOperand = this.currentOperand.toString() + number.toString();
     };
