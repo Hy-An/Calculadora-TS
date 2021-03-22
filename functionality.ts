@@ -22,7 +22,7 @@ class Calculator {
   }
 
   appendNumber(number) {
-    if (number === "." && this.currentOperand.toString().includes(".")) return;
+    if (number === "." && this.currentOperand.includes(".")) return;
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
 
@@ -36,7 +36,7 @@ class Calculator {
     this.currentOperand = "";
   }
   compute() {
-    let computation;
+    let computation = undefined;
     const prev = parseFloat(this.previousOperand);
     const current = parseFloat(this.currentOperand);
     if (isNaN(prev) || isNaN(current)) return;
@@ -65,7 +65,7 @@ class Calculator {
     const stringNumber = number.toString();
     const integerDigits = parseFloat(stringNumber.split(".")[0]);
     const decimalDigits = stringNumber.split(".")[1];
-    let integerDisplay;
+    let integerDisplay = undefined;
     if (isNaN(integerDigits)) {
       integerDisplay = "";
     } else {
@@ -94,8 +94,12 @@ class Calculator {
   }
 }
 
-const numberButtons: any = document.querySelectorAll("[data-number]");
-const operationButtons: any = document.querySelectorAll("[data-operation]");
+const numberButtons: NodeListOf<HTMLElement> = document.querySelectorAll(
+  "[data-number]"
+);
+const operationButtons: NodeListOf<HTMLElement> = document.querySelectorAll(
+  "[data-operation]"
+);
 const equalsButton = document.querySelector("[data-equals]");
 const deleteButton = document.querySelector("[data-delete]");
 const allClearButton = document.querySelector("[data-all-clear]");
