@@ -1,9 +1,9 @@
 class Calculator {
   previousOperandTextElement: HTMLElement;
   currentOperandTextElement: HTMLElement;
-  currentOperand: string;
-  previousOperand: string;
-  operation: string;
+  currentOperand!: string;
+  previousOperand!: string;
+  operation!: string;
 
   constructor(previousOperandTextElement, currentOperandTextElement) {
     this.previousOperandTextElement = previousOperandTextElement;
